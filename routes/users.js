@@ -7,11 +7,14 @@ var router = express.Router();
  */
 router.get('/userlist', function(req, res) {
     // console.log(">>>", req)
-    var userId = req.rawHeaders[17];
+    var userIdFromCookie = req.rawHeaders[17];
+    var userId = userIdFromCookie.split("=")[1];
+    console.log(userId)
     // var userIDBe =
     var db = req.db;
     var collection = db.get('userlist');
-    collection.find({},{},function(e,docs){
+
+    collection.find({"userId" : userId},{},function(e,docs){
         res.json(docs);
     });
 });

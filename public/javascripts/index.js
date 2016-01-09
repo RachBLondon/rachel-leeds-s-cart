@@ -1,7 +1,7 @@
 (function(){
   console.log("hello world")
   // document.cookie"userId=0003";
-  var userId = document.cookie="userId=0003";
+  var userId = document.cookie="0003";
 
   console.log(userId);
 
