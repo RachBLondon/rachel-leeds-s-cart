@@ -7,9 +7,9 @@ var router = express.Router();
  */
 router.get('/userlist', function(req, res) {
     // console.log(">>>", req)
-    var userIdFromCookie = req.rawHeaders[17];
-    var userId = userIdFromCookie.split("=")[1];
-    console.log(userId)
+    console.log(req);
+    console.log('>>>',req.cookies.userId)
+    var userId = req.cookies.userId;
     // var userIDBe =
     var db = req.db;
     var collection = db.get('userlist');
