@@ -1,6 +1,7 @@
 (function(){
   console.log("hello world")
-  var userId = document.cookie="0003";
+  // document.cookie"userId=0003";
+  var userId = document.cookie="userId=0003";
 
   console.log(userId);
 
@@ -13,7 +14,7 @@
       }
   }
   console.log("sending XML");
-  out.open('GET', '/getLocation');
-  out.send();
+  out.open('GET', '/users/userlist');
+  out.send(userId);
 
 })();
