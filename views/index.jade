@@ -4,19 +4,18 @@ block content
   .container.container-view
     .row
       .col-md-12.header-footer
-        span
-    .main-content
+      .main-content
+        form(action='/completion', method='POST')
+          .row
+            .col-md-4
+              #sportsArea.form-group
+                h2 Sports
+            .col-md-4
+              #newsArea.form-group
+                h2  News
+            .col-md-4
+              h2 Shopping Cart
+          .col-md-12
+            input.btn-lg(type='submit', value='Checkout')
       .row
-        form
-          .col-md-4
-            #sportsArea.form-group
-              h2 Sports
-          .col-md-4
-            #newsArea.form-group
-              h2  News
-          .col-md-4
-            h2 Shopping Cart
-      .col-md-12
-        button.btn-lg  Checkout
-    .row
-      .col-md-12.header-footer
+        .col-md-12.header-footer
