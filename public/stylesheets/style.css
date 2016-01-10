@@ -12,3 +12,7 @@
 .main-content {
   height:60%;
 }
+
+.main-content button {
+  float: right;
+}
