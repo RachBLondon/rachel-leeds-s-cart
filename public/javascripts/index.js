@@ -47,21 +47,13 @@
 
     channelArray.map(function(channel){
       var divCheckBox = document.createElement('div');
-
-      var checkbox = document.createElement('input');
       var label = document.createElement('label');
 
-      divCheckBox.className = "checkbox";
-      checkbox.type = "checkbox";
-      checkbox.name = channel;
-      checkbox.value = channel;
-      checkbox.id = channel;
-      checkbox.className = "hidden";
-      label.htmlFor = channel;
-
+      divCheckBox.className = "shoppingCartList";
+      label.id = channel;
+      label.className = "hidden";
       checkBoxArea.appendChild(divCheckBox);
       divCheckBox.appendChild(label);
-      label.appendChild(checkbox);
       label.appendChild(document.createTextNode(channel));
     });
   }
@@ -86,6 +78,7 @@
          console.log("already checked",this.name);
        } else {
          console.log(this.name);
+         document.getElementById(this.name).removeAttribute("class")
        }
       });
 
