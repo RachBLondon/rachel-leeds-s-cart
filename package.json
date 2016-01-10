@@ -18,5 +18,10 @@
     "serve-favicon": "~2.2.1",
     "shot": "^3.0.0",
     "tape": "^4.4.0"
+  },
+  "devDependencies": {
+    "jshint": "^2.8.0",
+    "shot": "^3.0.0",
+    "tape": "^4.4.0"
   }
 }
