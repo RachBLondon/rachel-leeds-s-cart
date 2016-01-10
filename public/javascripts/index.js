@@ -7,25 +7,31 @@
   var sportsChannels = [];
   var newsChannels = ["Sky News", "Sky Sports News"];
 
+  var getSportChannels = function(location){
+      if (location === "London"){
+        sportsChannels.push("Arsenal TV","Chelsea TV");
+      } else if (location === "Liverpool"){
+        sportsChannels.push("Liverpool TV");
+      }
+      return sportsChannels;
+  }
 
-  var printNews = function(newsChannels, areaId) {
+
+  var printOptions = function(channelArray, areaId) {
     checkBoxArea = document.getElementById(areaId);
 
-    newsChannels.map(function(channel){
+    channelArray.map(function(channel){
       var divCheckBox = document.createElement('div');
       var channelId = channel.replace(/\s+/g, '');
       var checkbox = document.createElement('input');
+      var label = document.createElement('label');
 
       divCheckBox.className = "checkbox";
-
       checkbox.type = "checkbox";
       checkbox.name = channel;
       checkbox.value = channel;
       checkbox.id = channelId;
-
-      var label = document.createElement('label')
       label.htmlFor = channelId;
-
 
       checkBoxArea.appendChild(divCheckBox);
       divCheckBox.appendChild(label);
@@ -41,15 +47,15 @@
       //handle callback her
       var location = JSON.parse(out.responseText)[0].location;
       console.log(location);
-      console.log(newsChannels);
-      printNews(newsChannels, "news-area");
+      printOptions(getSportChannels(location),"sportsArea");
+
       }
   }
   console.log("sending XML");
   out.open('GET', '/users/userlist');
   out.send(document.cookie);
 
-printNews(newsChannels, "newsArea");
+printOptions(newsChannels, "newsArea");
 
 
 })();
