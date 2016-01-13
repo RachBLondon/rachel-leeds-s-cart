@@ -5,10 +5,24 @@
 }
 
 .header-footer {
-  height:  10em;
+  height: 5em;
   background-color: grey;
 }
 
 .main-content {
   height:60%;
+}
+
+.main-content .btn-lg {
+  margin-left:  85%;
+  margin-bottom: 2em;
+  margin-right: 2em;
+}
+
+@media only screen and (max-width: 500px) {
+
+  .main-content .btn-lg {
+    margin: 2em;
+  }
+
 }

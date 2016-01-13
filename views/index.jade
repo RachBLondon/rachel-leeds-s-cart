@@ -2,22 +2,21 @@ extends layout
 
 block content
   .container.container-view
-     .row
-       .col-md-12.header-footer
-        span
-         button London
-         button Liverpool
-         button Somewhere Else
-     .row.main-content
-       form
-         .col-md-4
-           #sportsArea.form-group
-             h2 Sports
-         .col-md-4
-           #newsArea.form-group
-             h2  News
-         .col-md-4
-           h2 Shopping Cart
-           button  Checkout
-     .row
-       .col-md-12.header-footer
+    .row
+      .col-md-12.header-footer
+      .main-content
+        form(action='/completion', method='POST')
+          .row
+            .col-md-4
+              #sportsArea.form-group
+                h2 Sports
+            .col-md-4
+              #newsArea.form-group
+                h2  News
+            .col-md-4
+              h2 Shopping Cart
+              #shoppingCart
+          .col-md-12
+            input.btn-lg(type='submit', value='Checkout')
+      .row
+        .col-md-12.header-footer
