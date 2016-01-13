@@ -33,6 +33,8 @@
       checkbox.value = channel;
       checkbox.id = channelId;
       checkbox.className = "checkboxSelection";
+
+
       label.htmlFor = channelId;
 
       checkBoxArea.appendChild(divCheckBox);
@@ -44,17 +46,17 @@
 
   var printShoppingCart = function(channelArray, areaId) {
     checkBoxArea = document.getElementById(areaId);
-
     channelArray.map(function(channel){
+      var channelIdSelected = channel.replace(/\s+/g, '') + "selected";
       var divCheckBox = document.createElement('div');
-      var label = document.createElement('label');
+      var p = document.createElement('p');
 
       divCheckBox.className = "shoppingCartList";
-      label.id = channel;
-      label.className = "hidden";
+      p.id = channelIdSelected;
       checkBoxArea.appendChild(divCheckBox);
-      divCheckBox.appendChild(label);
-      label.appendChild(document.createTextNode(channel));
+      divCheckBox.appendChild(p);
+      p.appendChild(document.createTextNode(channel));
+      p.style.display = 'none';
     });
   }
 
@@ -72,16 +74,43 @@
       //printout all items hidden in shopping Cart
       printShoppingCart(allChannels, "shoppingCart");
 
-      $( ".checkboxSelection" ).on( "click", function() {
-        if ($('input.checkbox_check').prop('checked')) {
-      //
-         console.log("already checked",this.name);
-       } else {
-         console.log(this.name);
-         document.getElementById(this.name).removeAttribute("class")
-       }
-      });
+      // $( ".checkboxSelection" ).on( "click", function() {
+      //   if ($('input.checkbox_check').prop('checked')) {
+      // //
+      //    console.log("already checked",this.name);
+      //  } else {
+      //    console.log(this.name);
+      //    document.getElementById(this.name).removeAttribute("class")
+      //  }
+      // });
+      // $(function(){
+      //     $('.checkboxSelection').toggle(function(){
+      //       var selected = this.name.toString();
+      //       console.log(selected)
+      //       // $(selected).text('chicked');
+      //     }, function(){
+      //       var selected = this.name.toString();
+      //       console.log(selected);
+      //       // $(selected).text('');
+      //     });
+      //   });
 
+
+      $('.checkboxSelection').click(function() {
+        var selected =  "#" +this.id +'selected';
+        var selectedString = selected.toString()
+
+
+      if($(this).attr("checked")){
+        console.log(selected);
+        $(selectedString).style.display = 'none'
+
+      }else{
+        // $(this).find('#'+ selected)
+        console.log(selected);
+        $(selectedString).style.display = 'block'
+      }
+    });
 
     }
   }
