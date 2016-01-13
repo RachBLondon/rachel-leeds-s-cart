@@ -97,19 +97,21 @@
 
 
       $('.checkboxSelection').click(function() {
-        var selected =  "#" +this.id +'selected';
-        var selectedString = selected.toString()
+        var selected = this.id.toString();
+        var selectedString = selected + "selected";
 
+          if($(this).hasClass("checked")){
+            console.log("unselected" + selectedString);
+            document.getElementById(this.id).removeAttribute("class", "checked");
+            // $(selectedString).style.color = 'green'
+            document.getElementById(selectedString).style.display = 'none';
 
-      if($(this).attr("checked")){
-        console.log(selected);
-        $(selectedString).style.display = 'none'
-
-      }else{
-        // $(this).find('#'+ selected)
-        console.log(selected);
-        $(selectedString).style.display = 'block'
-      }
+          }else{
+            // $(this).find('#'+ selected)
+            console.log("selected" + selectedString);
+            document.getElementById(this.id).setAttribute("class", "checked");
+            document.getElementById(selectedString).style.display = 'block';
+          }
     });
 
     }
