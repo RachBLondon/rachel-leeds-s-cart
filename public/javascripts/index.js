@@ -101,14 +101,10 @@
         var selectedString = selected + "selected";
 
           if($(this).hasClass("checked")){
-            console.log("unselected" + selectedString);
             document.getElementById(this.id).removeAttribute("class", "checked");
-            // $(selectedString).style.color = 'green'
             document.getElementById(selectedString).style.display = 'none';
 
           }else{
-            // $(this).find('#'+ selected)
-            console.log("selected" + selectedString);
             document.getElementById(this.id).setAttribute("class", "checked");
             document.getElementById(selectedString).style.display = 'block';
           }
